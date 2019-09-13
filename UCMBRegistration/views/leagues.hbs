@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{{> head}}
+    <!-- linking custom site CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/section_dashboard.css">
+
+</head>
+
+<body class="w-100 bg-light">
+    {{> nav}}
+    <!-- Side Nav Bar -->
+    <div class="row container-fluid">
+        <div class="sidebar col-lg-3 col-xs-12">
+            <form>
+                <div class="mx-auto">
+                    <p class="montserratFont text-white text-center mt-2">Actions:</p>
+                    <hr class="bg-white">
+                    <div class="text-center">
+                        <a id="addSection" class="text-white text-center btn btn-danger my-2"
+                            href="add_section.html">Add a New
+                            Section</a>
+
+                        <button id="showAllSections" class="text-white text-center btn btn-secondary my-2">Show All
+                            Sections</button>
+                    </div>
+                </div>
+                <div class="mx-auto">
+                    <p id="filterText" class="montserratFont text-white text-center">Filter Results By:</p>
+                    <hr class="bg-white">
+                </div>
+                <div>
+                    <div id="leagueSelectDiv" class="form-group text-secondary text-center w-75 mx-auto">
+                        <!--Drop down for selecting a section-->
+                        <label for="leagueDropDown" class="text-white">INSTRUMENT FAMILY</label>
+                        <select class="form-control" id="leagueDropDown" name="leagueDropDown">
+                            <option value="-1">Choose a Family</option>
+                        </select>
+                        <div class="text-center"><br>-- or --</div>
+                    </div>
+                    <div id="sectionSelectDiv" class="form-group text-secondary text-center w-75 mx-auto">
+                        <!--Drop down for selecting a section-->
+                        <label for="sectionDropDown" class="text-white">SECTION</label>
+                        <select class="form-control" id="sectionDropDown" name="sectionDropDown">
+                            <option value="-1">Choose a Section</option>
+                        </select>
+                        <div class="text-center"><br>-- or --</div>
+                    </div>
+                    <div id="managerSelectDiv" class="form-group text-secondary text-center w-75 mx-auto mb-4">
+                        <!--Drop down for selecting a section-->
+                        <label for="managerDropDown" class="text-white">SECTION LEADER</label>
+                        <select class="form-control" id="managerDropDown" name="managerDropDown">
+                            <option value="-1">Choose a Section Leader</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- end of Side Nav Bar -->
+        <!-- MAIN CONTENT -->
+
+        <div class="col-xs-12 col-lg-9 mx-auto container-fluid">
+            <div id="sectionCardDiv" class="text-center">
+                <h2 class="montserratFont mt-5" id="noSectionMsg">There are currently no registered Sections</h2>
+            </div>
+        </div>
+    </div>
+    <!-- END OF MAIN CONTENT -->
+    {{> footer}}
+    {{> scripts}}
+    <script src="/js/section_dashboard.js"></script>
+
+</body>
+
+</html>
