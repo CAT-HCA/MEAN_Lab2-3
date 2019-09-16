@@ -1,6 +1,10 @@
 "use strict";
 // document ready event listener
 $(document).ready(function() {
+	$("#logoutLink").css("display", "inline-block");
+	$("#sectionDashLink").css("display", "inline-block");
+	$("#loginLink").css("display", "none");
+	$("#regLink").css("display", "none");
 	//retrieving "team" (section and section leader) data from json file
 	$.getJSON("/teams/data", function(data) {
 		if (data.length == 0) {
@@ -44,6 +48,7 @@ $(document).ready(function() {
 		$("#sectionCardDiv").empty();
 		callGetTeams($("#managerDropDown"));
 	});
+
 });
 
 function callGetTeams(dropDownField) {
