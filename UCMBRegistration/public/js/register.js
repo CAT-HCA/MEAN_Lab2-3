@@ -38,6 +38,8 @@ function postNewUser(data) {
 }
 
 function clearFields() {
+	$("#errorMessageDiv").empty();
+	$("#alreadyRegDiv").css("display", "none");
 	$("#registerEmail").val("");
 	$("#registerUsername").val("");
 	$("#registerPassword").val("");

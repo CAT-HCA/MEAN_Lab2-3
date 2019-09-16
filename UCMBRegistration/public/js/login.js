@@ -12,7 +12,7 @@ $(document).ready(() => {
 			loginUser(data);
 		}
 	});
-	$("#regResetBtn").click(() => {
+	$("#loginResetBtn").click(() => {
 		clearFields();
 	});
 
@@ -41,6 +41,8 @@ function loginUser(data) {
 
 
 function clearFields() {
+	$("#errorMessageDiv").empty();
+	$("#userNotFoundDiv").css("display", "none");
 	$("#loginUsername").val("");
 	$("#loginPassword").val("");
 }
