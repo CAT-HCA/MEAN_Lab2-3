@@ -20,8 +20,10 @@ router.post("/login", function(req, res, next) {
   var password = req.body.password;
   //validating user credentials
   if (authorization.auth.authorize(username, password)) {
+    req.session.username = username;
     res.statusCode = 200;
 } else {
+  req.session.username = null;
     res.statusCode = 403;
 }
 res.end();
@@ -39,6 +41,11 @@ router.post("/register", function(req, res, next) {
       res.statusCode = 403;
   }
   res.end();
+});
+
+router.get('/logout', function(req, res, next) {
+  req.session.username = null;
+  res.redirect('/');
 });
 
 module.exports = router;
