@@ -1,3 +1,23 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <!-- linking custom site CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+
+</head>
+
+<body class="w-100 bg-light">
+    {{> nav}}
+    <div class="container m-5 montserratFont text-primary">
+    <h1>{{message}}</h1>
+    <h2>{{error.status}}</h2>
+    <pre>{{error.stack}}</pre></div>
+    <!-- END OF MAIN CONTENT -->
+    {{> footer}}
+    {{> scripts}}
+
+</body>
+
+</html>
