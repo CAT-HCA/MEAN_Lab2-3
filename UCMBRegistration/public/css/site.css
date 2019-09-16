@@ -11,6 +11,11 @@
 	font-size: 12px;
 }
 
+/* formatting nav links*/
+#sectionDashLink, #logoutLink{
+	display: none;
+}
+
 /* formatting for footer*/
 html {
 	position: relative;
