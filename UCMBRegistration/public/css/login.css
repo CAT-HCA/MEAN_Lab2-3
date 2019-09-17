@@ -1,11 +1,3 @@
-#userNotFoundDiv {
-    display: none;
-}
-
-#loginBtn{
-
-}
-
-#logoutBtn{
+#userNotFoundDiv,#logoutBtn {
     display: none;
 }
