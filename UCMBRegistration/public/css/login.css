@@ -1,3 +1,4 @@
-#userNotFoundDiv,#logoutBtn {
+/* hiding error msg div*/
+#userNotFoundDiv{
     display: none;
 }

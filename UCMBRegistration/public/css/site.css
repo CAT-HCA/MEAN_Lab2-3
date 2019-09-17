@@ -11,7 +11,7 @@
 	font-size: 12px;
 }
 
-/* formatting nav links*/
+/* hiding registered user-only nav links*/
 #sectionDashLink, #logoutLink{
 	display: none;
 }
