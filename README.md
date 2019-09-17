@@ -1,10 +1,20 @@
-## Install Module
+Mean Labs 2 and 3 made user of express, hbs, and express session to refactor a page of our capstone and add user register/login/logout functionality.
+
+My teams landing page has the 3 drop down lists dynamically created (filtering not implemented yet), as well as the team cards (links to team pages, not yet implemented).
+
+
+![enter image description here](https://lh3.googleusercontent.com/s3tj1FDvzVbYR67jBFXHuQ32_NQKgoY-v6E2kyk3d5Fs6g1DLSlfy_FwPDZ7dFWdsK5Cz4KXDoA "Index page")
+
+![enter image description here](https://lh3.googleusercontent.com/PDGcQCZQAVNgf3HqrEJxD7X0v20he0588W4Qef8NkSRacpEIT9d8Q-RSZE5Oy4i-XHZgk7VBjNE "Teams page")
+
+## Starting the app
+### Install Module
 
 ```
 $ npm install express-generator -g
 ```
 
-## Generate the App
+### Generate the App
 
 ```
 $ cd A_WORKING_DIR_OF_YOUR_CHOICE
