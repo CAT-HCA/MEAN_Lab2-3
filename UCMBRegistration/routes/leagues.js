@@ -5,6 +5,7 @@ var fs = require("fs");
 // http://localhost:3000/leagues
 router.get("/", function(req, res, next) {
 	var username = req.session.username;
+	//if username is logged in session storage serve leagues page
 	if (username) {
 		res.render("leagues", { title: "Leagues" });
 	} else {
