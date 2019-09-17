@@ -1,8 +1,8 @@
 //document on load event listener
 $(document).ready(() => {
-	//login button click even
+	//login button click event
 	$("#loginBtn").click(() => {
-		//getting user data to submit
+		//getting user data to post
 		let data = {
 			username: $("#loginUsername")
 				.val()
