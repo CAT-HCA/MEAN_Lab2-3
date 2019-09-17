@@ -31,6 +31,8 @@ function postNewUser(data) {
 			window.location.href = "/users/login";
 		})
 		.fail(function(res) {
+			$("#errorMessages").empty();
+			$("#errorMessages").removeClass("bg-success border border-success rounded");
 			$("#alreadyRegDiv")
 				.addClass("bg-success border border-success rounded")
 				.css("display", "inline-block");
@@ -38,6 +40,9 @@ function postNewUser(data) {
 }
 
 function clearFields() {
+	$("#errorMessages").empty();
+	$("#errorMessages").removeClass("bg-success border border-success rounded");
+	$("#alreadyRegDiv").css("display", "none");
 	$("#registerEmail").val("");
 	$("#registerUsername").val("");
 	$("#registerPassword").val("");
@@ -46,6 +51,8 @@ function clearFields() {
 
 //function to validate form fields
 function validateForm(data) {
+	$("#errorMessages").empty();
+	$("#alreadyRegDiv").css("display", "none");
 	let errorArray = [];
 	//validating email
 	let emailPattern = /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/;

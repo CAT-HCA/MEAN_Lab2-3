@@ -1,10 +1,14 @@
 $(document).ready(() => {
 	$("#loginBtn").click(() => {
 		let data = {
-			username: $("#loginUsername").val().trim(),
-			password: $("#loginPassword").val().trim(),
+			username: $("#loginUsername")
+				.val()
+				.trim(),
+			password: $("#loginPassword")
+				.val()
+				.trim(),
 		};
-		console.log(data)
+		console.log(data);
 		//calling function to validate form
 		let validationResult = validateForm(data);
 		//if form validates... move forward with creating member
@@ -12,42 +16,35 @@ $(document).ready(() => {
 			loginUser(data);
 		}
 	});
-	$("#regResetBtn").click(() => {
+	$("#loginResetBtn").click(() => {
 		clearFields();
 	});
 
-	$("#goToLoginBtn").click(() => {
+	$("#goToRegBtn").click(() => {
 		window.location.href = "/users/register";
 	});
-
-
 });
 
 function loginUser(data) {
+	hideMsg();
 	$.post("http://localhost:3000/users/login", data, function() {})
-	.done(function(res) {
-		$("#loginUsername").val("");
-		$("#loginPassword").val("");
-		window.location.href = "/leagues";
+		.done(function(res) {
+			emptyFields();
+			window.location.href = "/leagues";
 		})
 		.fail(function(e) {
-			if(e.status === 403){
-			$("#userNotFoundDiv")
-				.addClass("bg-success border border-success rounded")
-				.css("display", "inline-block");
-			} 
+			if (e.status === 403) {
+				emptyErrors();
+				showError("#userNotFoundDiv");
+			}
 		});
-}
-
-
-function clearFields() {
-	$("#loginUsername").val("");
-	$("#loginPassword").val("");
 }
 
 
 //function to validate form fields
 function validateForm(data) {
+	emptyErrors();
+	hideMsg();
 	let errorArray = [];
 
 	//validating username
@@ -62,11 +59,32 @@ function validateForm(data) {
 		return true;
 	}
 	if (errorArray.length > 0) {
-		$("#errorMessages").empty();
-		$("#errorMessages").addClass("bg-success border border-success rounded");
+		showError("#errorMessageDiv");
 		for (let i = 0; i < errorArray.length; i++) {
 			$("<li>" + errorArray[i] + "</li>").appendTo($("#errorMessages"));
 		}
 		return false;
 	}
+}
+
+function clearFields() {
+	emptyErrors()
+	hideMsg()
+	emptyFields()
+}
+function showError(errorDiv){
+	$(errorDiv)
+	.addClass("bg-success border border-success rounded w-100 p-1")
+	.css("display", "inline-block");
+}
+function emptyErrors(){
+	$("#errorMessages").empty();
+	$("#errorMessageDiv").removeClass("bg-success border border-success rounded w-100");
+}
+function emptyFields(){
+	$("#loginUsername").val("");
+	$("#loginPassword").val("");
+}
+function hideMsg(){
+	$("#userNotFoundDiv").css("display", "none");
 }
